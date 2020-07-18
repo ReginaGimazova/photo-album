@@ -1,5 +1,16 @@
+const isDev = process.env.NODE_ENV !== 'production'
+
 module.exports = {
-  mode: 'spa',
+  /*
+   ** For get SSR app (not SPA)
+   * modern: 'client' property contributes to create 2 bundles:
+   * for browsers supported ES6 Modules syntax and Legacy bundle transpiled with Babel
+   */
+
+  mode: 'universal',
+  ...(!isDev && {
+    modern: 'client'
+  }),
   /*
    ** Headers of the page
    */
@@ -16,6 +27,10 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  rootDir: __dirname,
+
+  serverMiddleware: [],
+
   /*
    ** Customize the progress-bar color
    */
@@ -23,7 +38,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['normalize.css', './assets/scss/global-styles.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -41,10 +56,34 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // Doc: https://pwa.nuxtjs.org/
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
+    '@nuxtjs/style-resources',
+    // Doc: https://www.npmjs.com/package/nuxt-trailingslash-module
+    'nuxt-trailingslash-module',
+    // Doc: https://www.npmjs.com/package/nuxt-webfontloader
+    'nuxt-webfontloader'
   ],
+  render: {
+    ...(!isDev && {
+      http2: {
+        push: true,
+        pushAssets: (req, res, publicPath, preloadFiles) =>
+          preloadFiles.map(
+            (f) => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`
+          )
+      }
+    }),
+    compressor: false,
+    resourceHints: false,
+    etag: false,
+    static: {
+      etag: false
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
