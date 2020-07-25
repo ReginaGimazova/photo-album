@@ -9,10 +9,10 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 .link {
   padding: 5px 10px;
-  color: #4285f4;
+  color: $blue;
   font-weight: 600;
 }
 </style>

@@ -1,8 +1,6 @@
 <template>
-  <header :class="[$style.header]">
-    <div>
-      <Logo />
-    </div>
+  <header class="header">
+    <Logo />
     <div>
       <Link text="+ Создать альбом" />
       <Link text="Загрузить" />
@@ -12,7 +10,7 @@
 
 <script>
 import Link from '~/components/ui/Link'
-import Logo from '~/components/Logo.vue'
+import Logo from '~/components/ui/Logo.vue'
 
 export default {
   components: {
@@ -22,7 +20,7 @@ export default {
 }
 </script>
 
-<style module>
+<style lang="scss">
 .header {
   display: flex;
   justify-content: space-between;

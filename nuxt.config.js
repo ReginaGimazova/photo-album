@@ -65,8 +65,12 @@ module.exports = {
     // Doc: https://www.npmjs.com/package/nuxt-trailingslash-module
     'nuxt-trailingslash-module',
     // Doc: https://www.npmjs.com/package/nuxt-webfontloader
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    '@nuxtjs/svg'
   ],
+  styleResources: {
+    scss: ['./assets/scss/*.scss']
+  },
   render: {
     ...(!isDev && {
       http2: {
