@@ -11,6 +11,10 @@ module.exports = {
   ...(!isDev && {
     modern: 'client'
   }),
+  server: {
+    port: process.env.PORT || 3000,
+    host: '0.0.0.0' // default: localhost
+  },
   /*
    ** Headers of the page
    */
@@ -30,7 +34,6 @@ module.exports = {
   rootDir: __dirname,
 
   serverMiddleware: [],
-
   /*
    ** Customize the progress-bar color
    */
