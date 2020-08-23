@@ -4,6 +4,9 @@
   "description": "My premium Nuxt.js project",
   "author": "ReginaGimazova",
   "private": true,
+  "engines" : {
+    "node": "12.4.0"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
