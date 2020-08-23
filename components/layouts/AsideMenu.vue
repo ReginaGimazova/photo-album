@@ -3,7 +3,7 @@
     <ul class="list">
       <li v-for="item in menuItems" :key="item.label" class="item">
         <span class="icon-wrapper">
-          <component v-bind:is="item.component" />
+          <component :is="item.component" />
         </span>
         <p>
           {{ item.label }}
@@ -43,10 +43,12 @@ export default {
 .aside-menu {
   width: 8rem;
   height: inherit;
+  padding: 2rem 0;
   text-align: center;
 }
 
 .list {
+  padding: 0;
   list-style: none;
 }
 

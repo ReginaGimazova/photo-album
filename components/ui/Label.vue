@@ -1,8 +1,6 @@
 <template>
   <p>
-    <strong>
-
-    </strong>
+    <strong> </strong>
   </p>
 </template>
 

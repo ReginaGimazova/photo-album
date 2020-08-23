@@ -25,6 +25,6 @@ export default {
   min-height: 100vh;
 }
 .menu {
-  height: 100vh;
+  height: 100%;
 }
 </style>

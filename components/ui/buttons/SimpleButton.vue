@@ -1,5 +1,5 @@
 <template>
-  <button>{{ this.children }}</button>
+  <button>{{ children }}</button>
 </template>
 
 <style lang="scss">
