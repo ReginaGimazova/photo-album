@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import Header from '~/components/layouts/Header.vue'
-import AsideMenu from '~/components/layouts/AsideMenu'
+import Header from '~/components/layouts/Header.vue';
+import AsideMenu from '~/components/layouts/AsideMenu';
 
 export default {
   components: {
     AsideMenu,
-    Header
-  }
-}
+    Header,
+  },
+};
 </script>
 
 <style>

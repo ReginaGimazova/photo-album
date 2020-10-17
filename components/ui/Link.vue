@@ -5,14 +5,15 @@
 <script>
 export default {
   props: {
-    text: String
-  }
-}
+    text: String,
+  },
+};
 </script>
+
 <style lang="scss">
 .link {
   padding: 5px 10px;
-  color: $blue;
+  color: $gray;
   font-weight: 600;
 }
 </style>

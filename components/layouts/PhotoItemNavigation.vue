@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import MoreIcon from '~/static/icons/more.svg?inline'
-import Trash from '~/static/icons/trash.svg?inline'
-import Zoom from '~/static/icons/zoom.svg?inline'
-import LeftArrow from '~/static/icons/left_arrow.svg?inline'
-import Popover from '~/components/ui/Popover.vue'
+import MoreIcon from '~/static/icons/more.svg?inline';
+import Trash from '~/static/icons/trash.svg?inline';
+import Zoom from '~/static/icons/zoom.svg?inline';
+import LeftArrow from '~/static/icons/left_arrow.svg?inline';
+import Popover from '~/components/ui/Popover.vue';
 
 export default {
   components: { Popover, LeftArrow },
@@ -26,20 +26,20 @@ export default {
       navigationItems: [
         {
           id: 0,
-          component: Zoom
+          component: Zoom,
         },
         {
           id: 1,
-          component: Trash
+          component: Trash,
         },
         {
           id: 2,
-          component: MoreIcon
-        }
-      ]
-    }
-  }
-}
+          component: MoreIcon,
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss">
