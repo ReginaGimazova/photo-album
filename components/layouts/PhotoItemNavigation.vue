@@ -8,7 +8,6 @@
         <component :is="item.component" />
       </li>
     </ul>
-    <Popover />
   </nav>
 </template>
 
@@ -46,7 +45,7 @@ export default {
 .photo-navigation {
   position: absolute;
   width: 100%;
-  top: 20px;
+  top: 1.3rem;
   display: flex;
   justify-content: space-between;
   height: max-content;
@@ -63,6 +62,9 @@ export default {
 }
 
 .icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -72,8 +74,8 @@ export default {
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 1.3rem;
+    height: 1.3rem;
     fill: $white;
   }
 }

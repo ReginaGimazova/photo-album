@@ -39,7 +39,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 30px;
+  padding: 2rem;
 
   &__actions {
     display: flex;

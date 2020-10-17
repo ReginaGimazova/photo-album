@@ -15,8 +15,8 @@ export default {
 <style lang="scss">
 .popover {
   background-color: $white;
-  border-radius: 5px;
-  padding: 20px 10px;
+  border-radius: 0.2rem;
+  padding: 1.1rem 0.8rem;
   width: 300px;
 
   &__description {

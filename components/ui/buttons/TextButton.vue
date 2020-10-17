@@ -15,8 +15,8 @@ export default {
   background: none;
   color: $gray;
   font-weight: 600;
-  padding: 10px;
-  border-radius: 3px;
+  padding: 0.8rem;
+  border-radius: 0.2rem;
 
   &:hover {
     background-color: $light-gray;

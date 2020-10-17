@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss">
 .link {
-  padding: 5px 10px;
+  padding: 0.4rem 0.8rem;
   color: $gray;
   font-weight: 600;
 }

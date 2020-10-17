@@ -3,7 +3,7 @@
 </template>
 <style>
 .logo--full {
-  margin-right: 20px;
+  margin-right: 1rem;
   font-size: 1.6rem;
   font-weight: 600;
 }
