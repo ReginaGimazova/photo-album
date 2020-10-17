@@ -1,6 +1,6 @@
 <template>
   <p>
-    <strong> </strong>
+    <strong>Test</strong>
   </p>
 </template>
 

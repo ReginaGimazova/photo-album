@@ -36,13 +36,6 @@ blocks:
         - name: yarn run lint
           commands:
             - yarn run lint
-  - name: CSS Lint
-    dependencies: ['Setup']
-    task:
-      jobs:
-        - name: yarn run lint:css
-          commands:
-            - yarn run lint:css
   - name: Tests
     dependencies: ['Setup']
     task:
