@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import PhotoItemNavigation from '~/components/layouts/PhotoItemNavigation.vue'
+import PhotoItemNavigation from '~/components/layouts/PhotoItemNavigation.vue';
 
 export default {
   components: {
-    PhotoItemNavigation
-  }
-}
+    PhotoItemNavigation,
+  },
+};
 </script>
 
 <style lang="scss">

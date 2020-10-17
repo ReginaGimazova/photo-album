@@ -16,27 +16,27 @@
 <style></style>
 
 <script>
-import PhotoIcon from '~/static/icons/photo.svg?inline'
+import PhotoIcon from '~/static/icons/photo.svg?inline';
 export default {
   data() {
     return {
       menuItems: [
         {
           label: 'Photo',
-          component: PhotoIcon
+          component: PhotoIcon,
         },
         {
           label: 'Video',
-          component: null
+          component: null,
         },
         {
           label: 'Albums',
-          component: null
-        }
-      ]
-    }
-  }
-}
+          component: null,
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss">

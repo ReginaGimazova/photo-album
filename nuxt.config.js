@@ -1,4 +1,4 @@
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   /*
@@ -9,11 +9,11 @@ module.exports = {
 
   mode: 'universal',
   ...(!isDev && {
-    modern: 'client'
+    modern: 'client',
   }),
   server: {
     port: process.env.PORT || 3000,
-    host: '0.0.0.0' // default: localhost
+    host: '0.0.0.0', // default: localhost
   },
   /*
    ** Headers of the page
@@ -26,10 +26,10 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: './static/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '~static/favicon.ico' }],
   },
   rootDir: __dirname,
 
@@ -41,17 +41,17 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['normalize.css', './assets/scss/global-styles.scss'],
+  css: ['normalize.css', '~assets/scss/global-styles.scss'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~plugins/vue-tippy'],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
   ],
   /*
    ** Nuxt.js modules
@@ -69,27 +69,25 @@ module.exports = {
     'nuxt-trailingslash-module',
     // Doc: https://www.npmjs.com/package/nuxt-webfontloader
     'nuxt-webfontloader',
-    '@nuxtjs/svg'
+    '@nuxtjs/svg',
   ],
   styleResources: {
-    scss: ['./assets/scss/*.scss']
+    scss: ['~assets/scss/*.scss'],
   },
   render: {
     ...(!isDev && {
       http2: {
         push: true,
         pushAssets: (req, res, publicPath, preloadFiles) =>
-          preloadFiles.map(
-            (f) => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`
-          )
-      }
+          preloadFiles.map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`),
+      },
     }),
     compressor: false,
     resourceHints: false,
     etag: false,
     static: {
-      etag: false
-    }
+      etag: false,
+    },
   },
   /*
    ** Axios module configuration
@@ -103,6 +101,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
-}
+    extend(config, ctx) {},
+  },
+};
