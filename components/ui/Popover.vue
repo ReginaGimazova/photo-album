@@ -1,49 +1,29 @@
 <template>
-  <div id="popover">
-    <input v-model="message" type="text" />
-    <button
-      v-tippy="{
-        html: '#tooltip',
-        interactive: true,
-        reactive: true,
-        arrow: true,
-        animation: 'perspective',
-        onShow: showMe,
-        theme: 'light',
-        position: 'bottom'
-      }"
-    >
-      {{ reference }}
-    </button>
-    <div id="tooltip">
-      <div>
-        <p>{{ message }}</p>
-        <button @click="clicked">Click me to update the message</button>
-      </div>
-    </div>
+  <div class="popover">
+    <p class="popover__description">{{ description }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  el: '#popover',
-  data() {
-    return {
-      message: 'This is a dynamic message'
-    }
+  props: {
+    description: String,
   },
-  methods: {
-    clicked() {
-      this.message = `New number : ${this.rand()}`
-    },
+};
+</script>
 
-    showMe() {
-      console.log('Let the show begin')
-    },
+<style lang="scss">
+.popover {
+  background-color: $white;
+  border-radius: 5px;
+  padding: 20px 10px;
+  width: 300px;
 
-    rand() {
-      return Math.round(Math.random() * 100)
-    }
+  &__description {
+    text-transform: uppercase;
+    color: $gray;
+    font-size: 0.75rem;
+    text-align: left;
   }
 }
-</script>
+</style>
