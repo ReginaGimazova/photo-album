@@ -4,7 +4,7 @@
   </p>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .label {
   color: $gray;
   font-size: 1rem;

@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .link {
   padding: 0.4rem 0.8rem;
   color: $gray;

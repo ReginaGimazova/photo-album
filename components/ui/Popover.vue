@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .popover {
   background-color: $white;
   border-radius: 0.2rem;

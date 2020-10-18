@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .photo-navigation {
   position: absolute;
   width: 100%;
@@ -55,10 +55,8 @@ export default {
 .items {
   display: flex;
   justify-content: flex-end;
-  list-style: none;
   width: 100%;
   height: max-content;
-  padding: 0;
 }
 
 .icon-wrapper {

@@ -2,12 +2,14 @@
   <aside class="aside-menu">
     <ul class="list">
       <li v-for="item in menuItems" :key="item.label" class="item">
-        <span class="icon-wrapper">
-          <component :is="item.component" />
-        </span>
-        <p>
-          {{ item.label }}
-        </p>
+        <nuxt-link v-bind:to="item.link" prefetch>
+          <span class="icon-wrapper">
+            <component :is="item.component" />
+          </span>
+          <p>
+            {{ item.label }}
+          </p>
+        </nuxt-link>
       </li>
     </ul>
   </aside>
@@ -24,14 +26,17 @@ export default {
         {
           label: 'Photo',
           component: PhotoIcon,
+          link: '/photo',
         },
         {
           label: 'Video',
           component: null,
+          link: '/video',
         },
         {
           label: 'Albums',
           component: null,
+          link: '/albums',
         },
       ],
     };
@@ -39,7 +44,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .aside-menu {
   width: 8rem;
   height: inherit;
