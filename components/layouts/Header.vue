@@ -1,32 +1,29 @@
 <template>
   <header class="header">
-    <Logo />
     <div class="header__actions">
       <Link text="+ Создать альбом" />
 
-      <tippy to="loadTippy" flip="false" multiple>
+      <tippy to="load" flip="false" multiple>
         Загрузить фото
       </tippy>
 
-      <tippy to="loadTippy" theme="light" trigger="click" multiple>
+      <tippy to="load" theme="light" trigger="click" multiple>
         <Popover description="Загрузить фото" />
       </tippy>
 
-      <TextButton text="Загрузить" content="I'm a Tippy tooltip!" name="loadTippy" />
+      <TextButton text="Загрузить" name="load" />
     </div>
   </header>
 </template>
 
 <script>
 import Link from '@/components/ui/Link';
-import Logo from '@/components/ui/Logo';
 import TextButton from '@/components/ui/buttons/TextButton';
 import Popover from '@/components/ui/Popover';
 
 export default {
   components: {
     Link,
-    Logo,
     TextButton,
     Popover,
   },
@@ -39,7 +36,9 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
+  border-bottom: 2px solid $light-gray;
+  margin-bottom: 2rem;
 
   &__actions {
     display: flex;

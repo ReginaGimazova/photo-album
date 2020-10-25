@@ -1,13 +1,13 @@
 <template>
   <aside class="aside-menu">
-    <ul class="list">
+    <ul>
       <li v-for="item in menuItems" :key="item.label" class="item">
-        <span class="icon-wrapper">
-          <component :is="item.component" />
-        </span>
-        <p>
-          {{ item.label }}
-        </p>
+        <nuxt-link v-bind:to="item.link" prefetch>
+          <span class="icon-wrapper">
+            <component :is="item.component" />
+            {{ item.label }}
+          </span>
+        </nuxt-link>
       </li>
     </ul>
   </aside>
@@ -17,66 +17,70 @@
 
 <script>
 import PhotoIcon from '~/static/icons/photo.svg?inline';
+import AlbumIcon from '~/static/icons/album.svg?inline';
+
 export default {
   data() {
     return {
       menuItems: [
         {
-          label: 'Photo',
+          label: 'Фото',
           component: PhotoIcon,
+          link: '/photo',
         },
         {
-          label: 'Video',
+          label: 'Видео',
           component: null,
+          link: '/video',
         },
         {
-          label: 'Albums',
-          component: null,
+          label: 'Альбомы',
+          component: AlbumIcon,
+          link: '/albums',
         },
       ],
     };
   },
+  methods: {
+    onResize() {
+      this.windowHeight = window.innerHeight;
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .aside-menu {
-  width: 8rem;
+  width: 15rem;
   height: inherit;
-  padding: 2rem 0;
   text-align: center;
-}
-
-.list {
-  padding: 0;
-  list-style: none;
 }
 
 .item {
   color: $blue;
+  background-color: transparentize($light-blue, 0.6);
+  border-radius: 0 24px 24px 0;
+
+  &:hover {
+    background-color: lighten($gray, 45%);
+  }
+
   &:not(:last-child) {
     margin-bottom: 1.2rem;
   }
 }
 
 .icon-wrapper {
-  width: 4rem;
-  height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   margin: 0 auto 0.4rem;
-  border-radius: 50%;
-  background-color: lighten($blue, 50%);
+  padding: 0.5rem 1rem;
   cursor: pointer;
 
-  &:hover {
-    background-color: lighten($blue, 45%);
-  }
-
   svg {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 1rem;
     fill: $blue;
   }
 }
