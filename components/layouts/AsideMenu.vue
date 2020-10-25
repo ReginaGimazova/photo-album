@@ -1,11 +1,13 @@
 <template>
-  <aside class="aside-menu">
+  <aside class="menu">
     <ul>
-      <li v-for="item in menuItems" :key="item.label" class="item">
-        <div class="icon-wrapper">
-          <component :is="item.component" />
-          <span class="label">{{ item.label }}</span>
-        </div>
+      <li v-for="item in menuItems" :key="item.label" class="item" v-bind:class="item.active && 'item_active'">
+        <nuxt-link v-bind:to="item.link" prefetch>
+          <div class="item__inner">
+            <component :is="item.component" class="icon" />
+            <span class="icon__label">{{ item.label }}</span>
+          </div>
+        </nuxt-link>
       </li>
     </ul>
   </aside>
@@ -23,7 +25,8 @@ export default {
         {
           label: 'Фото',
           component: PhotoIcon,
-          link: '/photo',
+          active: this.$route.path === '/',
+          link: '/',
         },
         {
           label: 'Видео',
@@ -47,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.aside-menu {
+.menu {
   width: max-content;
   height: inherit;
   text-align: center;
@@ -57,16 +60,12 @@ export default {
   width: 40px;
   margin: 0 16px;
   color: $blue;
-  background-color: transparentize($light-blue, 0.6);
   border-radius: 24px;
   transition: width 0.2s ease-in-out;
+  line-height: 1.8;
 
   &:hover {
-    background-color: lighten($gray, 45%);
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 1.2rem;
+    background-color: transparentize($light-gray, 0.1);
   }
 
   @media screen and (min-width: $md) {
@@ -74,30 +73,38 @@ export default {
     margin: 0;
     border-radius: 0 24px 24px 0;
   }
-}
 
-.label {
-  padding-left: 24px;
-  display: none;
+  &_active {
+    background-color: transparentize($light-blue, 0.6);
 
-  @media screen and (min-width: $md) {
-    display: inline;
+    &:hover {
+      background-color: transparentize($light-blue, 0.4);
+    }
   }
 }
 
-.icon-wrapper {
+.item__inner {
   display: flex;
   align-items: center;
   padding: 8px;
   cursor: pointer;
   width: 100%;
 
-  svg {
-    fill: $blue;
-  }
-
   @media screen and (min-width: $md) {
     padding: 8px 16px;
+  }
+}
+
+.icon {
+  fill: $blue;
+
+  &__label {
+    padding-left: 24px;
+    display: none;
+
+    @media screen and (min-width: $md) {
+      display: inline;
+    }
   }
 }
 </style>
