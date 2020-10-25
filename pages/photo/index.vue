@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    <PhotoItemNavigation />
+    <PhotoNavigation />
   </div>
 </template>
 
 <script>
-import PhotoItemNavigation from '~/components/layouts/PhotoItemNavigation.vue';
+import PhotoNavigation from '@/components/layouts/PhotoNavigation/index.js';
 
 export default {
   components: {
-    PhotoItemNavigation,
+    PhotoNavigation,
   },
 };
 </script>
@@ -18,5 +18,17 @@ export default {
 .container {
   min-height: 100vh;
   background-color: $black;
+}
+
+.image-container {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  position: absolute;
 }
 </style>
