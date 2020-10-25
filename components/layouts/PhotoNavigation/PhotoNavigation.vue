@@ -1,42 +1,56 @@
 <template>
   <nav class="photo-navigation">
-    <span class="icon-wrapper">
+    <span class="icon-wrapper arrow-wrapper" @click="back">
       <LeftArrow />
     </span>
     <ul class="items">
       <li v-for="item in navigationItems" :key="item.id" class="icon-wrapper">
-        <component :is="item.component" />
+        <component :is="item.component" v-bind="item.props" />
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-import MoreIcon from '~/static/icons/more.svg?inline';
+import Additional from '~/static/icons/more.svg?inline';
 import Trash from '~/static/icons/trash.svg?inline';
 import Zoom from '~/static/icons/zoom.svg?inline';
 import LeftArrow from '~/static/icons/left_arrow.svg?inline';
-import Popover from '~/components/ui/Popover.vue';
 
 export default {
-  components: { Popover, LeftArrow },
+  components: { LeftArrow },
   data() {
     return {
       navigationItems: [
         {
           id: 0,
           component: Zoom,
+          props: {
+            withPopover: false,
+          },
         },
         {
           id: 1,
           component: Trash,
+          props: {
+            withPopover: false,
+          },
         },
         {
           id: 2,
-          component: MoreIcon,
+          component: Additional,
+          props: {
+            withPopover: true,
+            name: 'more',
+          },
         },
       ],
     };
+  },
+  methods: {
+    back() {
+      this.$router.back();
+    },
   },
 };
 </script>
@@ -50,6 +64,7 @@ export default {
   justify-content: space-between;
   height: max-content;
   padding: 0 200px;
+  z-index: 1;
 }
 
 .items {
@@ -74,9 +89,16 @@ export default {
   }
 
   svg {
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
     fill: $white;
+  }
+}
+
+.arrow-wrapper {
+  &:hover {
+    transform: translateX(-3px);
+    transition: transform 0.3s ease 0s;
   }
 }
 </style>
