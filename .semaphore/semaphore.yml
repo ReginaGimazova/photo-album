@@ -43,3 +43,10 @@ blocks:
         - name: yarn test
           commands:
             - yarn run test:ci
+promotions:
+  - name: Deploy to Heroku
+    pipeline_file: deploy.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - 'master'
