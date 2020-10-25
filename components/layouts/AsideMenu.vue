@@ -2,21 +2,18 @@
   <aside class="aside-menu">
     <ul>
       <li v-for="item in menuItems" :key="item.label" class="item">
-        <nuxt-link v-bind:to="item.link" prefetch>
-          <span class="icon-wrapper">
-            <component :is="item.component" />
-            {{ item.label }}
-          </span>
-        </nuxt-link>
+        <div class="icon-wrapper">
+          <component :is="item.component" />
+          <span class="label">{{ item.label }}</span>
+        </div>
       </li>
     </ul>
   </aside>
 </template>
 
-<style></style>
-
 <script>
 import PhotoIcon from '~/static/icons/photo.svg?inline';
+import VideoIcon from '~/static/icons/video.svg?inline';
 import AlbumIcon from '~/static/icons/album.svg?inline';
 
 export default {
@@ -30,7 +27,7 @@ export default {
         },
         {
           label: 'Видео',
-          component: null,
+          component: VideoIcon,
           link: '/video',
         },
         {
@@ -51,15 +48,18 @@ export default {
 
 <style lang="scss" scoped>
 .aside-menu {
-  width: 15rem;
+  width: max-content;
   height: inherit;
   text-align: center;
 }
 
 .item {
+  width: 40px;
+  margin: 0 16px;
   color: $blue;
   background-color: transparentize($light-blue, 0.6);
-  border-radius: 0 24px 24px 0;
+  border-radius: 24px;
+  transition: width 0.2s ease-in-out;
 
   &:hover {
     background-color: lighten($gray, 45%);
@@ -68,20 +68,36 @@ export default {
   &:not(:last-child) {
     margin-bottom: 1.2rem;
   }
+
+  @media screen and (min-width: $md) {
+    width: 250px;
+    margin: 0;
+    border-radius: 0 24px 24px 0;
+  }
+}
+
+.label {
+  padding-left: 24px;
+  display: none;
+
+  @media screen and (min-width: $md) {
+    display: inline;
+  }
 }
 
 .icon-wrapper {
   display: flex;
   align-items: center;
-  margin: 0 auto 0.4rem;
-  padding: 0.5rem 1rem;
+  padding: 8px;
   cursor: pointer;
+  width: 100%;
 
   svg {
-    width: 1.8rem;
-    height: 1.8rem;
-    margin-right: 1rem;
     fill: $blue;
+  }
+
+  @media screen and (min-width: $md) {
+    padding: 8px 16px;
   }
 }
 </style>
