@@ -1,5 +1,5 @@
 <template>
-  <button class="text-button">{{ this.text }}</button>
+  <button class="button">{{ this.text }}</button>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
-.text-button {
+.button {
   background: none;
   color: $gray;
   font-weight: 600;

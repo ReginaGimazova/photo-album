@@ -1,8 +1,8 @@
 <template>
-  <span class="logo--full">Photo album</span>
+  <span class="logo">Photo album</span>
 </template>
 <style>
-.logo--full {
+.logo {
   margin-right: 1rem;
   font-size: 1.6rem;
   font-weight: 600;
