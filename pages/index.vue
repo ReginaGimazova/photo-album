@@ -3,6 +3,7 @@
     <Header />
     <main class="menu">
       <AsideMenu />
+      <button @click="loginClicked">click</button>
     </main>
   </div>
 </template>
@@ -15,6 +16,16 @@ export default {
   components: {
     AsideMenu,
     Header,
+  },
+  middleware: ['auth'],
+  methods: {
+    async loginClicked() {
+      try {
+        await this.$auth.loginWith('google');
+      } catch (err) {
+        console.log('login error: ' + err);
+      }
+    },
   },
 };
 </script>

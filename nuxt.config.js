@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -52,6 +54,7 @@ module.exports = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Nuxt.js modules
@@ -59,6 +62,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     // Doc: https://pwa.nuxtjs.org/
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
@@ -94,6 +98,24 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  auth: {
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/',
+      home: '/',
+    },
+    strategies: {
+      google: {
+        client_id: process.env.GOOGLE_CLIENT_ID,
+        redirect_uri: process.env.GOOGLE_REDIRECT_URL,
+        scope: 'https://www.googleapis.com/auth/photos',
+      },
+    },
+  },
+  router: {
+    middleware: ['auth'],
+  },
   /*
    ** Build configuration
    */
