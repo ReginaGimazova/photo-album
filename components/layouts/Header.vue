@@ -12,6 +12,8 @@
       </tippy>
 
       <TextButton text="Загрузить" name="load" />
+
+      <GoogleButton />
     </div>
   </header>
 </template>
@@ -20,9 +22,11 @@
 import Link from '@/components/ui/Link';
 import TextButton from '@/components/ui/buttons/TextButton';
 import Popover from '@/components/ui/Popover';
+import GoogleButton from '@/components/ui/buttons/GoogleButton';
 
 export default {
   components: {
+    GoogleButton,
     Link,
     TextButton,
     Popover,

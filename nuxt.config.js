@@ -109,7 +109,7 @@ module.exports = {
       google: {
         client_id: process.env.GOOGLE_CLIENT_ID,
         redirect_uri: process.env.GOOGLE_REDIRECT_URL,
-        scope: 'https://www.googleapis.com/auth/photos',
+        scope: ['profile', 'https://www.googleapis.com/auth/photos'],
       },
     },
   },
