@@ -1,22 +1,31 @@
 <template>
   <form class="form">
-    <GoogleLogo />
-    <h1 class="form__title">Вход</h1>
-    <p class="form__subtitle">Переход в Фото</p>
+    <header class="form__header">
+      <GoogleLogo />
+      <h1 class="form__title">Вход</h1>
+    </header>
     <div class="form__inner">
-      <Input value="" placeholder="Адрес эл. почты" />
-      <Button>Далее</Button>
+      <Button v-bind:on-click="loginClicked">Перейти к Photo Album</Button>
     </div>
   </form>
 </template>
 
 <script>
-import Input from '@/components/ui/Input';
 import Button from '@/components/ui/buttons/Button';
 import GoogleLogo from '@/static/icons/googleLogo.svg?inline';
 
 export default {
-  components: { Input, Button, GoogleLogo },
+  components: { Button, GoogleLogo },
+  middleware: ['auth'],
+  methods: {
+    async loginClicked() {
+      try {
+        await this.$auth.loginWith('google');
+      } catch (err) {
+        console.log('login error: ' + err);
+      }
+    },
+  },
 };
 </script>
 
@@ -39,16 +48,16 @@ export default {
   }
 }
 
+.form__header {
+  display: flex;
+  align-items: center;
+}
+
 .form__title {
-  margin: 20px 0 10px;
+  margin-left: 1rem;
   font-size: 1.6rem;
   color: $dark-gray;
   line-height: 1.5;
-}
-
-.form__subtitle {
-  color: $dark-gray;
-  line-height: 1;
 }
 
 .form__inner {
