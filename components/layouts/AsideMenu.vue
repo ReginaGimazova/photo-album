@@ -68,7 +68,7 @@ export default {
     background-color: transparentize($light-gray, 0.1);
   }
 
-  @media screen and (min-width: $md) {
+  @include for-tablet-landscape-up {
     width: 250px;
     margin: 0;
     border-radius: 0 24px 24px 0;
@@ -90,7 +90,7 @@ export default {
   cursor: pointer;
   width: 100%;
 
-  @media screen and (min-width: $md) {
+  @include for-tablet-landscape-up {
     padding: 8px 16px;
   }
 }
@@ -102,7 +102,7 @@ export default {
     padding-left: 24px;
     display: none;
 
-    @media screen and (min-width: $md) {
+    @include for-tablet-landscape-up {
       display: inline;
     }
   }

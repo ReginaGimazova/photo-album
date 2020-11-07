@@ -6,6 +6,7 @@
 
 <script>
 import GoogleIcon from '~/static/icons/google.svg?inline';
+import getGoogleProfile from '@/services/getGoogleProfile';
 
 export default {
   middleware: ['auth'],
@@ -16,6 +17,7 @@ export default {
     async loginClicked() {
       try {
         await this.$auth.loginWith('google');
+        await getGoogleProfile();
       } catch (err) {
         console.log('login error: ' + err);
       }
@@ -28,7 +30,7 @@ export default {
 .button_google {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  padding: 5px 15px;
   box-shadow: 2px 4px 3px -2px $light-gray;
   border: 1px solid $light-gray;
   border-radius: 3px;
@@ -36,14 +38,12 @@ export default {
   font-weight: 600;
 
   &::after {
-    content: 'Sign in with Google';
+    content: 'Sign in';
   }
 
-  @media screen and (max-width: $md) {
-    padding: 5px 10px;
-
+  @include for-tablet-landscape-up {
     &::after {
-      content: 'Sign in';
+      content: 'Sign in with Google';
     }
   }
 }

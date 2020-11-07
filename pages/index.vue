@@ -1,30 +1,31 @@
 <template>
   <div class="container">
-    <Header />
-    <main class="menu">
-      <AsideMenu />
-    </main>
+    <div class="container__empty" />
+    <SignInForm />
+    <div class="container__empty" />
   </div>
 </template>
 
 <script>
-import Header from '~/components/layouts/Header.vue';
-import AsideMenu from '~/components/layouts/AsideMenu';
-
+import SignInForm from '@/components/layouts/SignInForm/SignInForm';
 export default {
-  components: {
-    AsideMenu,
-    Header,
-  },
+  components: { SignInForm },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto;
   min-height: 100vh;
 }
-.menu {
-  height: 100%;
+.container__empty {
+  flex: 0.5;
+
+  @include for-tablet-portrait-up {
+    flex: 1;
+  }
 }
 </style>

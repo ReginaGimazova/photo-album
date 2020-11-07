@@ -63,6 +63,7 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/auth',
+    'cookie-universal-nuxt',
     // Doc: https://pwa.nuxtjs.org/
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
@@ -102,14 +103,14 @@ module.exports = {
     redirect: {
       login: '/',
       logout: '/',
-      callback: '/',
-      home: '/',
+      callback: '/photos',
+      home: '/photos',
     },
     strategies: {
       google: {
         client_id: process.env.GOOGLE_CLIENT_ID,
         redirect_uri: process.env.GOOGLE_REDIRECT_URL,
-        scope: ['profile', 'https://www.googleapis.com/auth/photos'],
+        scope: ['profile', 'email', 'https://www.googleapis.com/auth/photos'],
       },
     },
   },
