@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PhotoNavigation from '@/components/layouts/PhotoNavigation/index.js';
+import PhotoNavigation from '@/components/layouts/PhotoNavigation';
 
 export default {
   components: {

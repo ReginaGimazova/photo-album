@@ -36,7 +36,7 @@ export default {
   align-items: center;
   flex: 1;
   width: 450px;
-  min-height: 300px;
+  min-height: 150px;
   padding: 30px;
   border: 3px solid $light-gray;
   border-radius: 5px;

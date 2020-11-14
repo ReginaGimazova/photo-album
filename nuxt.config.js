@@ -101,10 +101,10 @@ module.exports = {
   axios: {},
   auth: {
     redirect: {
-      login: '/',
+      login: '/signin',
       logout: '/',
-      callback: '/photos',
-      home: '/photos',
+      callback: '/',
+      home: '/',
     },
     strategies: {
       google: {
