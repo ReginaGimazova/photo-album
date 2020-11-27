@@ -1,8 +1,25 @@
 $white: #fff;
 $black: #000;
+$dark-gray: #202124;
 $gray: #757575;
 $light-gray: #f5f5f5;
-$blue: #1c60b4;
+$blue: #1b66c9;
 $light-blue: #cde0f6;
 
 $md: '1000px';
+
+@mixin for-phone {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
