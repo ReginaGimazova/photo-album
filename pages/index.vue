@@ -9,7 +9,7 @@
 
 <script>
 import Header from '~/components/layouts/Header.vue';
-import AsideMenu from '~/components/layouts/AsideMenu';
+import AsideMenu from '~/components/AsideMenu';
 
 export default {
   components: {

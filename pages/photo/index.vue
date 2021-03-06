@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PhotoNavigation from '@/components/layouts/PhotoNavigation';
+import PhotoNavigation from '@/components/PhotoNavigation';
 
 export default {
   components: {

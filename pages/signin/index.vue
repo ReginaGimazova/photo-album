@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SignInForm from '@/components/layouts/SignInForm/SignInForm';
+import SignInForm from '~/components/SignInForm';
 export default {
   components: { SignInForm },
 };

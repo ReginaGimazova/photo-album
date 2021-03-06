@@ -6,7 +6,6 @@
 
 <script>
 import GoogleIcon from '~/static/icons/google.svg?inline';
-import getGoogleProfile from '@/services/getGoogleProfile';
 
 export default {
   middleware: ['auth'],
@@ -17,7 +16,6 @@ export default {
     async loginClicked() {
       try {
         await this.$auth.loginWith('google');
-        await getGoogleProfile();
       } catch (err) {
         console.log('login error: ' + err);
       }
