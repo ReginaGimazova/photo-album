@@ -1,35 +1,23 @@
 <template>
   <header class="header">
     <div class="header__actions">
-      <Link text="+ Создать альбом" />
-
-      <tippy to="load" flip="false" multiple>
-        Загрузить фото
-      </tippy>
-
-      <tippy to="load" theme="light" trigger="click" multiple>
-        <Popover description="Загрузить фото" />
-      </tippy>
-
-      <TextButton text="Загрузить" name="load" />
-
-      <GoogleButton />
+      <GoogleButton v-if="!user" />
+      <PersonalBlock v-else :user="user" />
     </div>
   </header>
 </template>
 
 <script>
-import Link from '@/components/ui/Link';
-import TextButton from '@/components/ui/buttons/TextButton';
-import Popover from '@/components/ui/Popover';
-import GoogleButton from '@/components/ui/buttons/GoogleButton';
+import GoogleButton from '~/components/ui/buttons/GoogleButton';
+import PersonalBlock from '~/components/ui/PersonalBlock';
 
 export default {
   components: {
+    PersonalBlock,
     GoogleButton,
-    Link,
-    TextButton,
-    Popover,
+  },
+  props: {
+    user: String,
   },
 };
 </script>

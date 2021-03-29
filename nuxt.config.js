@@ -101,16 +101,15 @@ module.exports = {
   axios: {},
   auth: {
     redirect: {
-      login: '/signin',
-      logout: '/',
-      callback: '/',
-      home: '/',
+      home: false
     },
     strategies: {
       google: {
         client_id: process.env.GOOGLE_CLIENT_ID,
         redirect_uri: process.env.GOOGLE_REDIRECT_URL,
-        scope: ['profile', 'email', 'https://www.googleapis.com/auth/photos'],
+        scope: ['profile', 'email', process.env.GOOGLE_PHOTO_API_URL, process.env.GOOGLE_USER_API_URL],
+        response_type: 'token',
+        grant_type: 'authorization_code',
       },
     },
   },

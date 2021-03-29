@@ -1,8 +1,8 @@
 <template>
   <aside class="menu">
     <ul>
-      <li v-for="item in menuItems" :key="item.label" class="item" v-bind:class="item.active && 'item_active'">
-        <nuxt-link v-bind:to="item.link" prefetch>
+      <li v-for="item in menuItems" :key="item.label" class="item" :class="item.active && 'item_active'">
+        <nuxt-link :to="item.link" prefetch>
           <div class="item__inner">
             <component :is="item.component" class="icon" />
             <span class="icon__label">{{ item.label }}</span>

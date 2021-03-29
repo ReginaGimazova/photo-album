@@ -8,17 +8,35 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
-    '@nuxtjs',
-    'prettier',
     'prettier/vue',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    'plugin:vue/recommended',
+    'eslint:recommended',
   ],
   plugins: [
-    'prettier'
+    'prettier',
   ],
+  globals: {
+    $nuxt: true
+  },
   // add your custom rules here
   rules: {
-    'nuxt/no-cjs-in-config': 'off'
-  }
+    'nuxt/no-cjs-in-config': 'off',
+    "global-require": "warn",
+    'max-len': ['error', { code: 120 }],
+    'vue/max-len': ['error', {
+      code: 120,
+      template: 120,
+    }],
+    "no-unused-expressions": "warn",
+    "no-nested-ternary": "off",
+    "no-restricted-imports": [0, { "patterns": ["../*"] }]
+  },
+  settings: {
+    'import/resolver': {
+      nuxt: {
+        extensions: ['.js', '.vue'],
+      },
+    },
+  },
 }
