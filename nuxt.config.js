@@ -101,7 +101,8 @@ module.exports = {
   axios: {},
   auth: {
     redirect: {
-      home: false
+      home: false,
+      login: false
     },
     strategies: {
       google: {
